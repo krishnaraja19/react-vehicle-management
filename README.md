@@ -2,16 +2,16 @@
 
 ## Please install the below dependencies
 
-npm i react-icons
-npm i react-dom
-npm i json-server
-npm install -g json-server
-npm i axios
+1. npm i react-icons
+2. npm i react-dom
+3. npm i json-server
+4. npm install -g json-server
+5. npm i axios
 
 
 ### Please run the below command in separate command prompt:
-json-server --watch src/data/vehicles.json  --port 8000
-json-server --watch src/data/equipments.json  --port 8001
+1. json-server --watch src/data/vehicles.json  --port 8000
+2. json-server --watch src/data/equipments.json  --port 8001
 
 After finished the above steps,
 
