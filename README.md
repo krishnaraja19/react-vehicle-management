@@ -2,6 +2,8 @@
 
 ## Please install the below dependencies
 
+please install node js latest version, then install below depencies.
+
 1. npm i react-icons
 2. npm i react-dom
 3. npm i json-server
