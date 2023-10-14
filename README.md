@@ -2,7 +2,8 @@
 
 ## Please install the below dependencies
 
-please install node js latest version, then install below depencies.
+please install node js latest version, then clone this project and install below depencies.
+Please open command prompt inside this project folder and run these below commands 
 
 1. npm i react-icons
 2. npm i react-dom
