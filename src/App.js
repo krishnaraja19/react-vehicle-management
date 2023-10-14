@@ -34,8 +34,7 @@ function App() {
 
   const getVehicleData = async () => {
     var equipmentData = await getAllEquipments();  
-    const data = await vehicleService.fetchVehicles();
-
+    const data = await vehicleService.getVehicles();
     // Map equipment IDs to their names in each vehicle
     const vehiclesWithEquipmentNames = data.map((vehicle) => {
       if (Array.isArray(vehicle.equipments)) {

@@ -23,7 +23,7 @@ export const VehicleList = ({ rows, deleteRow, editRow }) => {
             if (row && row.id) {
               return (
                
-                <tr key={idx}>
+                <tr key={idx} data-testid="vehicle">
                   <td>{row.id}</td>
                   <td>{row.name}</td>
                   <td>{row.driver}</td>
@@ -41,6 +41,7 @@ export const VehicleList = ({ rows, deleteRow, editRow }) => {
                         onClick={() => deleteRow(row.id)}
                       />
                       <BsFillPencilFill
+                       data-testid="edit-btn"
                         className="edit-btn"
                         onClick={() => editRow(row.id)}
                       />

@@ -144,38 +144,6 @@
         3,
         4
       ]
-    },
-    {
-      "id": "v16",
-      "name": "asda",
-      "driver": "asdasd",
-      "status": "active",
-      "fuelType": "asdasd",
-      "equipments": []
-    },
-    {
-      "id": "v17",
-      "name": "sdfsdf",
-      "driver": "sdfsdf",
-      "status": "active",
-      "fuelType": "sdfsdf",
-      "equipments": [
-        1,
-        2,
-        3,
-        4
-      ]
-    },
-    {
-      "id": "v18",
-      "name": "asdasd",
-      "driver": "asdasd",
-      "status": "active",
-      "fuelType": "dasdsd",
-      "equipments": [
-        1,
-        2
-      ]
     }
   ]
 }

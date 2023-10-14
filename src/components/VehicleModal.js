@@ -15,16 +15,38 @@ export const VehicleModal = ({ closeModal, onSubmit, defaultValue, lengthOfRows,
     }
   );
   const [errors, setErrors] = useState("");
+  const [equipmentError, setEquipmentError] = useState("");
 
   const validateForm = () => {
 
-    if (formState.name && formState.driver && formState.status && formState.fuelType && typeof formState.equipments !== 'undefined') {
+    const invalidEquipments = [];
+      if (formState.equipments) {
+        const enteredEquipments = formState.equipments.split(',').map(equipmentName => equipmentName.trim());
+  
+        enteredEquipments.forEach(equipmentName => {
+          const foundEquipment = equipmentData.find(item => item.name === equipmentName);
+          if (!foundEquipment) {
+            invalidEquipments.push(equipmentName);
+          }
+        });
+        if (invalidEquipments.length > 0) {
+          setEquipmentError(invalidEquipments.join(", "));
+          return false;
+        } else {
+          setEquipmentError(""); // Clear equipment error if all are valid
+          
+        }
+      } else {
+        setEquipmentError("");
+      }
+   
+
+    if (formState.name && formState.driver && formState.status && formState.fuelType) {
       setErrors("");
       return true;
     } else {
       let errorFields = [];
       for (const [key, value] of Object.entries(formState)) {
-        console.log(value)
         if (!value) {
           errorFields.push(key);
         }
@@ -72,11 +94,11 @@ export const VehicleModal = ({ closeModal, onSubmit, defaultValue, lengthOfRows,
         <form>
           <div className="form-group">
             <label htmlFor="name">Name</label>
-            <input name="name" onChange={handleChange} value={formState.name} />
+            <input data-testid="name-input" name="name" onChange={handleChange} value={formState.name} />
           </div>
           <div className="form-group">
             <label htmlFor="driver">Driver</label>
-            <input name="driver" onChange={handleChange} value={formState.driver} />
+            <input data-testid="driver-input" name="driver" onChange={handleChange} value={formState.driver} />
           </div>
           <div className="form-group">
             <label htmlFor="status">Status</label>
@@ -86,8 +108,8 @@ export const VehicleModal = ({ closeModal, onSubmit, defaultValue, lengthOfRows,
               value={formState.status}
             >
               <option value="">Select Status</option>
-              <option value="active">Active</option>
-              <option value="inactive">Inactive</option>
+              <option  value="active">Active</option>
+              <option  value="inactive">Inactive</option>
             </select>
           </div>
           <div className="form-group">
@@ -99,7 +121,8 @@ export const VehicleModal = ({ closeModal, onSubmit, defaultValue, lengthOfRows,
             <input name="equipments" onChange={handleChange} value={formState.equipments} />
           </div>
           {errors && <div className="error">{`Please include: ${errors}`}</div>}
-          <button type="submit" className="btn" onClick={handleSubmit}>
+          {equipmentError && <div className="error">{`Not valid Equipment: ${equipmentError}. Please write comma(,) in between equipmets`}</div>}
+          <button data-testid="save-button" type="submit" className="btn" onClick={handleSubmit}>
             Submit
           </button>
         </form>

@@ -1,13 +1,13 @@
 import {
     createVehicle,
-    fetchAllVehicle,
+    getAllVehicles,
     updateVehicle,
     deleteVehicle
 } from "../api/routes/vehicle";
 
 export class VehicleService{
-    fetchVehicles = () =>{
-        return fetchAllVehicle();
+    getVehicles = () =>{
+        return getAllVehicles();
     }
 
     saveVehicle = (data) =>{

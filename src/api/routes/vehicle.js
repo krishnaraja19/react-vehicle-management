@@ -12,25 +12,19 @@ export async function createVehicle(data){
         return response;  
 
     }catch(error){
-        console.error("API error:", error);
-        throw error; 
+        alert("API error:", error);
     }
                 
 }
 
-export async function fetchAllVehicle() {
+export async function getAllVehicles() {
     try {
-        const response = await fetch(BASE_URL_VEHICLES);
-        const data = await response.json();
-        if (response.ok) {
-            return data;
-        } else {
-            console.error('Error fetching vehicle information:', data.error);
-            throw new Error('Failed to fetch vehicle information.');
-        }
+        const response = await axios.get(BASE_URL_VEHICLES);
+        return response.data;
+       
     } catch (error) {
-        console.error('Error fetching vehicle information:', error);
-        throw error;
+        console.log(error)
+        alert('Error fetching vehicle information:', error);
     }
 }
 
@@ -42,8 +36,7 @@ export async function updateVehicle(data){
         window.location.reload();
         return response;
     }catch(error){
-        console.error("API error",error);
-        throw error; 
+        alert("API error",error);
     }
         
 }
@@ -54,7 +47,6 @@ export async function deleteVehicle(id){
         window.location.reload();
         return response;
     }catch(error){
-        console.error("API error",error);
-        throw error; 
+        alert("API error",error);
     }
 }
