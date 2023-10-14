@@ -17,4 +17,6 @@ After finished the above steps,
 
 please run the "npm start"
 
-Then application page will open by your default browser.
+Then application page will open by your default browser automatically.
+
+If it is not open, please open this url "http://localhost:3000/" in your browser manually.
